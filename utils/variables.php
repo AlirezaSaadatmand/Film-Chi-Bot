@@ -35,6 +35,14 @@ function sendMessage($chat_id, $text, $reply_markup = null) {
     return bot('sendMessage', $data);
 }
 
+function sendChatAction($chat_id, $action) {
+    return bot('sendChatAction', [
+        'chat_id' => $chat_id,
+        'action'  => $action
+    ]);
+}
+
+
 function debug($data, $reply_markup = null) {
     $result = print_r($data, true);
     if ($reply_markup == null) {
