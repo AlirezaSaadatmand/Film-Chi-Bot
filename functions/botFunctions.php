@@ -1,5 +1,7 @@
 <?php
 
+require_once("../config/config.php");
+
 function bot(string $method, array $params) {
     $ch = curl_init();
     curl_setopt_array($ch, [
