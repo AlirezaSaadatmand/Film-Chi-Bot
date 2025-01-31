@@ -23,19 +23,15 @@ if (!$step) {
 }
 
 if ($text == "/start") {
-    $greetingText = "🎬 سلام! خوش اومدی! 🍿
+    $greetingText = "🎬 سلام {$username} خوش اومدی! 🍿
 بذار کمکت کنم یه فیلم یا سریال عالی پیدا کنی! 🎥✨
 فقط به چند سوال کوتاه جواب بده تا بهترین پیشنهاد رو بهت بدم. 🎭🎞️
 
 🔥 بزن بریم! 🚀";
 
     sendMessage($chatId, $greetingText);
-} else {
-    sendMessage($chatId, getQuestion($text, $questionsDataFile));
+
+    sendMessage($chatId, getQuestion("1", $questionsDataFile));
+    setStep($chatId, "2", $userDataFile);
+
 }
-
-
-
-// $response = chatBot($text);
-
-// sendMessage($fromId , $response);
