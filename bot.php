@@ -11,8 +11,10 @@ require("utils/variables.php");
 require("functions/botFunctions.php");
 require("functions/requestFunctions.php");
 require("functions/userFunctions.php");
+require("functions/questionFunctions.php");
 
 $userDataFile = __DIR__ . "/database/users.json";
+$questionsDataFile = __DIR__ . "/database/questions.json";
 
 $step = getStep($chatId, $userDataFile);
 
@@ -23,4 +25,12 @@ if (!$step) {
 
 if ($text == "/start") {
     sendMessage($chatId, $step);
+} else {
+    sendMessage($chatId, getQuestion($text, $questionsDataFile));
 }
+
+
+
+// $response = chatBot($text);
+
+// sendMessage($fromId , $response);
