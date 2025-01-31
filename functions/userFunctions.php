@@ -83,3 +83,22 @@ function setAnswer($chatId, $question, $answer, $filename)
 
     return false;
 }
+
+function resetAnswer($chatId, $filename)
+{
+    if (!file_exists($filename)) {
+        return "FILE NOT FOUND";
+    }
+
+    $jsonData = file_get_contents($filename);
+    $data = json_decode($jsonData, true);
+
+    foreach ($data['users'] as &$user) {
+        if ($user['cahtid'] === $chatId) {
+            $user['answers'] = [];
+            file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
+            return true;
+        }
+    }
+
+}
