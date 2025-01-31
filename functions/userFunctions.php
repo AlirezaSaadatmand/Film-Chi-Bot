@@ -21,7 +21,7 @@ function getStep($chatId, $filename)
 
 function addUser($chatId, $username, $filename)
 {
-    $defaultStep = 'home';
+    $defaultStep = 'q1';
 
     if (!file_exists($filename)) {
         $data = ["users" => []];

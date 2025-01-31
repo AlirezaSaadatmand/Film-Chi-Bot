@@ -18,13 +18,18 @@ $questionsDataFile = __DIR__ . "/database/questions.json";
 
 $step = getStep($chatId, $userDataFile);
 
-
 if (!$step) {
     addUser($chatId, $username, $userDataFile);
 }
 
 if ($text == "/start") {
-    sendMessage($chatId, $step);
+    $greetingText = "🎬 سلام! خوش اومدی! 🍿
+بذار کمکت کنم یه فیلم یا سریال عالی پیدا کنی! 🎥✨
+فقط به چند سوال کوتاه جواب بده تا بهترین پیشنهاد رو بهت بدم. 🎭🎞️
+
+🔥 بزن بریم! 🚀";
+
+    sendMessage($chatId, $greetingText);
 } else {
     sendMessage($chatId, getQuestion($text, $questionsDataFile));
 }
