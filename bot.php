@@ -24,7 +24,3 @@ if (!$step) {
 if ($text == "/start") {
     sendMessage($chatId, $step);
 }
-
-// $response = chatBot($text);
-
-// sendMessage($fromId , $response);
