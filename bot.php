@@ -33,5 +33,26 @@ if ($text == "/start") {
 
     sendMessage($chatId, getQuestion("1", $questionsDataFile));
     setStep($chatId, "2", $userDataFile);
+    die;
+}
 
+if ($step == "2") {
+    setAnswer($chatId, "1", $text, $userDataFile);
+    sendMessage($chatId, getQuestion("2", $questionsDataFile));
+    setStep($chatId, "3", $userDataFile);
+    die;
+}
+
+if ($step == "3") {
+    setAnswer($chatId, "2", $text, $userDataFile);
+    sendMessage($chatId, getQuestion("3", $questionsDataFile));
+    setStep($chatId, "4", $userDataFile);
+    die;
+}
+
+if ($step == "4") {
+    setAnswer($chatId, "3", $text, $userDataFile);
+    sendMessage($chatId, getQuestion("4", $questionsDataFile));
+    setStep($chatId, "5", $userDataFile);
+    die;
 }
