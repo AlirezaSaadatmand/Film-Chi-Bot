@@ -10,7 +10,7 @@ function getStep($chatId, $filename)
     $data = json_decode($jsonData, true);
 
     foreach ($data['users'] as $user) {
-        if ($user['cahtid'] === $chatId) {
+        if ($user['chatid'] === $chatId) {
             return $user['step'];
         }
     }
@@ -28,7 +28,7 @@ function setStep($chatId, $newStep, $filename)
     $data = json_decode($jsonData, true);
 
     foreach ($data['users'] as &$user) {
-        if ($user['cahtid'] === $chatId) {
+        if ($user['chatid'] === $chatId) {
             $user['step'] = $newStep;
             file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
             return true;
@@ -53,7 +53,7 @@ function addUser($chatId, $username, $filename)
 
     $data['users'][] = [
         "id" => $newId,
-        "cahtid" => $chatId,
+        "chatid" => $chatId,
         "username" => $username,
         "step" => $defaultStep,
         "requests" => 0,
@@ -74,7 +74,7 @@ function setAnswer($chatId, $question, $answer, $filename)
     $data = json_decode($jsonData, true);
 
     foreach ($data['users'] as &$user) {
-        if ($user['cahtid'] === $chatId) {
+        if ($user['chatid'] === $chatId) {
             $user['answers'] += [$question => $answer];
             file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
             return true;
@@ -94,7 +94,7 @@ function resetAnswer($chatId, $filename)
     $data = json_decode($jsonData, true);
 
     foreach ($data['users'] as &$user) {
-        if ($user['cahtid'] === $chatId) {
+        if ($user['chatid'] === $chatId) {
             $user['answers'] = [];
             file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
             return true;
@@ -113,7 +113,7 @@ function addRequestCount($chatId, $filename)
     $data = json_decode($jsonData, true);
 
     foreach ($data['users'] as &$user) {
-        if ($user['cahtid'] === $chatId) {
+        if ($user['chatid'] === $chatId) {
             $user['requests'] += 1;
             file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
             return true;
