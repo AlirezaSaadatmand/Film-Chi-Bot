@@ -68,7 +68,7 @@ if ($step == "5") {
 }
 
 if ($step == "result") {
-    setAnswer($chatId, "4", $text, $userDataFile);
+    setAnswer($chatId, "5", $text, $userDataFile);
 
     $response = makeChat($chatId, $userDataFile, $questionsDataFile);
 
@@ -99,6 +99,9 @@ if ($step == "result") {
         foreach ($filmTexts as $text) {
             sendMessage($chatId, $text);
         }
+    } else {
+        sendMessage($chatId, "مشکلی پیش اومده\n به ادمین پیام دادم ");
+        sendMessage(ADMIN, print_r($response, true));
     }
     setStep($chatId, "done", $userDataFile);
     die;
