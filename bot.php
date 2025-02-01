@@ -100,5 +100,10 @@ if ($step == "result") {
             sendMessage($chatId, $text);
         }
     }
+    setStep($chatId, "done", $userDataFile);
     die;
+}
+
+if ($step == "done") {
+    sendMessage($chatId, "دوباره /start بزن");
 }
