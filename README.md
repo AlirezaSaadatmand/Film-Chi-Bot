@@ -23,3 +23,7 @@ Before setting up the bot, ensure you have the following:
     git clone https://github.com/AlirezaSaadatmand/Film-Chi-Bot.git
     cd Film-Chi-Bot
     ```
+
+## Try the Bot
+
+🎬 **[Use Film-Chi-Bot on Telegram](https://t.me/NewFilmChi_bot)**
